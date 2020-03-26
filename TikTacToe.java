@@ -7,7 +7,6 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -114,6 +113,7 @@ public class TikTacToe extends JFrame
                 public void actionPerformed(ActionEvent e)
                 {
                     button[1].setText(start_icon);
+                    button[1].setEnabled(false);
                     setIcon();
                     checkPlayer();                        
                 }   
@@ -124,6 +124,7 @@ public class TikTacToe extends JFrame
                 public void actionPerformed(ActionEvent e)
                 {
                     button[2].setText(start_icon);
+                    button[2].setEnabled(false);
                     setIcon();
                     checkPlayer();                        
                 }   
@@ -134,6 +135,7 @@ public class TikTacToe extends JFrame
                 public void actionPerformed(ActionEvent e)
                 {
                     button[3].setText(start_icon);
+                    button[3].setEnabled(false);
                     setIcon();
                     checkPlayer();                        
                 }   
@@ -144,6 +146,7 @@ public class TikTacToe extends JFrame
                 public void actionPerformed(ActionEvent e)
                 {
                     button[4].setText(start_icon);
+                    button[4].setEnabled(false);
                     setIcon();
                     checkPlayer();                        
                 }   
@@ -154,6 +157,7 @@ public class TikTacToe extends JFrame
                 public void actionPerformed(ActionEvent e)
                 {
                     button[5].setText(start_icon);
+                    button[5].setEnabled(false);
                     setIcon();
                     checkPlayer();                        
                 }   
@@ -164,6 +168,7 @@ public class TikTacToe extends JFrame
                 public void actionPerformed(ActionEvent e)
                 {
                     button[6].setText(start_icon);
+                    button[6].setEnabled(false);
                     setIcon();
                     checkPlayer();                        
                 }   
@@ -174,6 +179,7 @@ public class TikTacToe extends JFrame
                 public void actionPerformed(ActionEvent e)
                 {
                     button[7].setText(start_icon);
+                    button[7].setEnabled(false);
                     setIcon();
                     checkPlayer();                        
                 }   
@@ -184,6 +190,7 @@ public class TikTacToe extends JFrame
                 public void actionPerformed(ActionEvent e)
                 {
                     button[8].setText(start_icon);
+                    button[8].setEnabled(false);
                     setIcon();
                     checkPlayer();                        
                 }   
@@ -194,6 +201,7 @@ public class TikTacToe extends JFrame
                 public void actionPerformed(ActionEvent e)
                 {
                     button[9].setText(start_icon);
+                    button[9].setEnabled(false);
                     setIcon();
                     checkPlayer();                        
                 }   
@@ -285,6 +293,14 @@ public class TikTacToe extends JFrame
                     {
                           player_O_wins();
                     }
+                    if(button[1].isEnabled()==false&&button[2].isEnabled()==false&&button[3].isEnabled()==false&&button[4].isEnabled()==false&&button[5].isEnabled()==false&&button[6].isEnabled()==false&&button[7].isEnabled()==false&&button[8].isEnabled()==false&&button[9].isEnabled()==false)
+                    {
+                        JOptionPane.showMessageDialog(null, "Match Drawn");
+                        draw_score++;
+                        draw_textfield.setText("D = "+draw_score);
+                        allClear();
+                        allEnable();
+                    }
     }
     
     
@@ -292,7 +308,7 @@ public class TikTacToe extends JFrame
     
     public void setIcon()
     {
-        if(start_icon == "X")
+        if("X".equals(start_icon))
         {
            start_icon = "O"; 
         }
@@ -305,18 +321,20 @@ public class TikTacToe extends JFrame
     public void player_x_wins()
     {
         JOptionPane.showMessageDialog(null, "Player X wins");
-        player_X_score = player_X_score + 1;
+        player_X_score++;
         player_X_textfield.setText("X = "+player_X_score);
         allClear();
+        allEnable();
        
     }
     
     public void player_O_wins()
     {
         JOptionPane.showMessageDialog(null, "Player O wins");
-        player_O_score = player_O_score + 1;
+        player_O_score++;
         player_O_textfield.setText("O = "+player_O_score);
         allClear();
+        allEnable();
        
     }
     
